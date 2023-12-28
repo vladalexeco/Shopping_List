@@ -58,7 +58,7 @@ class ShopListAdapter : RecyclerView.Adapter<ShopItemViewHolder>() {
         }
 
         holder.itemView.setOnClickListener {
-            onClickListener?.invoke(item)
+            onClickListener?.invoke(item   )
         }
     }
 
