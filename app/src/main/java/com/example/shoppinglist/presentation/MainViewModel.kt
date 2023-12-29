@@ -11,7 +11,7 @@ import com.example.shoppinglist.domain.usecase.GetShopListUseCase
 
 class MainViewModel : ViewModel() {
 
-    private val shopListRepository = ShopListRepositoryImpl()
+    private val shopListRepository = ShopListRepositoryImpl.getInstance()
 
     private val getShopListUseCase = GetShopListUseCase(shopListRepository)
     private val deleteShopItemUseCase = DeleteShopItemUseCase(shopListRepository)

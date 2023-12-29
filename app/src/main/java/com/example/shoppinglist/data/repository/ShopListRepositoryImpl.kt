@@ -9,7 +9,7 @@ import kotlin.random.Random
 
 class ShopListRepositoryImpl: ShopListRepository {
 
-    private val shopList = mutableListOf<ShopItem>()
+    val shopList = mutableListOf<ShopItem>()
 
     private var _shopListLD = MutableLiveData<List<ShopItem>>()
     private val shopListLD: LiveData<List<ShopItem>> = _shopListLD
@@ -58,5 +58,18 @@ class ShopListRepositoryImpl: ShopListRepository {
         shopList.clear()
         shopList.addAll(newList)
         _shopListLD.value = shopList.toList()
+    }
+
+    companion object {
+
+        private var shopListRepository: ShopListRepository? = null
+        fun getInstance(): ShopListRepository {
+            return if (shopListRepository == null) {
+                shopListRepository =  ShopListRepositoryImpl()
+                shopListRepository as ShopListRepository
+            } else {
+                shopListRepository as ShopListRepository
+            }
+        }
     }
 }

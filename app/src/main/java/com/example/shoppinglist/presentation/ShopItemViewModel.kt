@@ -23,7 +23,7 @@ class ShopItemViewModel : ViewModel() {
     private val _shouldCloseScreen = MutableLiveData<Unit>()
     val shouldCloseScreen: LiveData<Unit> = _shouldCloseScreen
 
-    private val shopListRepository = ShopListRepositoryImpl()
+    private val shopListRepository = ShopListRepositoryImpl.getInstance()
 
     private val getShopItemByIdUseCase = GetShopItemByIdUseCase(shopListRepository)
     private val editShopItemUseCase = EditShopItemUseCase(shopListRepository)
